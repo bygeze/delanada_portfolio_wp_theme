@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 /* ------------------------------------------------------------------
-   THEME TOKENS (Tailwind v4)
+   THEME TOKENS
 ------------------------------------------------------------------ */
 @theme {
   --color-border: hsl(var(--border));
@@ -35,14 +35,14 @@
 
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-surface-elevated: hsl(var(--surface-elevated));
+  --color-lilac-glow: hsl(var(--lilac-glow));
 }
 
-/* 
-  BRUTALIST SOUND ENGINEER DESIGN SYSTEM
-  Dark aesthetic with lilac accents
-  All colors in HSL format
-*/
-
+/* ------------------------------------------------------------------
+   ROOT VARIABLES & DARK MODE
+------------------------------------------------------------------ */
 @layer base {
   :root {
     /* Core dark palette */
@@ -55,7 +55,7 @@
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    /* Lilac accent as primary */
+    /* Primary Lilac accent */
     --primary: 270 50% 75%;
     --primary-foreground: 0 0% 4%;
 
@@ -106,6 +106,22 @@
   }
 }
 
+/* ------------------------------------------------------------------
+   CUSTOM FONT UTILITIES
+------------------------------------------------------------------ */
+@layer utilities {
+  .font-display {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* ------------------------------------------------------------------
+   BASE STYLES
+------------------------------------------------------------------ */
 @layer base {
   * {
     @apply border-border;
@@ -116,24 +132,22 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-background text-foreground antialiased font-body;
   }
 
-  /* Typography base styles */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    @apply font-display font-bold tracking-tight;
   }
 
-  /* Selection styling */
   ::selection {
     @apply bg-primary text-primary-foreground;
   }
 }
 
+/* ------------------------------------------------------------------
+   COMPONENTS
+------------------------------------------------------------------ */
 @layer components {
-  /* Brutalist button styles */
   .btn-brutalist {
     @apply border-2 border-foreground bg-transparent px-6 py-3 font-display font-bold uppercase tracking-wider transition-all duration-200;
   }
@@ -150,23 +164,19 @@
     @apply bg-primary text-primary-foreground;
   }
 
-  /* Section container */
   .section-container {
     @apply mx-auto w-full max-w-7xl px-4 md:px-8;
   }
 
-  /* Brutalist divider */
   .divider-brutal {
     @apply h-px w-full bg-border;
   }
 
-  /* Text accent */
   .text-accent-glow {
     @apply text-primary;
     text-shadow: 0 0 30px hsl(var(--lilac-glow) / 0.5);
   }
 
-  /* Card brutal style */
   .card-brutal {
     @apply border border-border bg-card transition-all duration-300;
   }
@@ -175,14 +185,15 @@
     @apply border-primary;
   }
 
-  /* Form input brutal style */
   .input-brutal {
     @apply border-2 border-border bg-transparent px-4 py-3 font-body text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors;
   }
 }
 
+/* ------------------------------------------------------------------
+   UTILITIES PERSONALIZADAS
+------------------------------------------------------------------ */
 @layer utilities {
-  /* Scrollbar styling */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -200,7 +211,6 @@
     @apply bg-muted-foreground;
   }
 
-  /* Hide scrollbar but keep functionality */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
