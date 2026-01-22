@@ -28,7 +28,7 @@
         <div className="min-h-screen bg-background text-foreground">
         <span>this is just a test</span>
         <header class="site-header">
-            <?php get_template_part('template-parts/navigation'); ?>
+            <?php get_template_part('./navigation'); ?>
         </header>        
         <main class="site-main">
             
