@@ -11,6 +11,6 @@
 
         <?php wp_footer(); ?>
     </div> <!-- Closes container from Header.php -->
-</div> <!-- Closes #root from Header.php -->
+<!-- </div> // removed for not loading react spa page --> <!-- Closes #root from Header.php -->
 </body>
 </html>

@@ -24,7 +24,7 @@
     <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <div id="root">
+    <!-- <div id="root"> // removed for not loading react spa page -->
         <div className="min-h-screen bg-background text-foreground">
         <span>this is just a test</span>
         <header class="site-header">
