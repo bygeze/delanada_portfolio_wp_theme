@@ -41,11 +41,25 @@
 }
 
 /* ------------------------------------------------------------------
+   CUSTOM UTILITIES (fuera de cualquier @layer)
+------------------------------------------------------------------ */
+@utility font-body {
+  font-family: var(--font-body);
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility font-bold {
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------------
    BASE STYLES
 ------------------------------------------------------------------ */
 @layer base {
   :root {
-    /* Core dark palette */
     --background: 0 0% 4%;
     --foreground: 0 0% 98%;
     --card: 0 0% 8%;
@@ -66,15 +80,12 @@
     --input: 0 0% 18%;
     --ring: 270 50% 75%;
     --radius: 0px;
-
-    /* Custom tokens */
     --surface-elevated: 0 0% 10%;
     --text-secondary: 0 0% 70%;
     --lilac-glow: 270 60% 70%;
   }
 
   .dark {
-    /* Dark mode overrides */
     --background: 0 0% 4%;
     --foreground: 0 0% 98%;
     --card: 0 0% 8%;
@@ -114,23 +125,6 @@
 
   ::selection {
     @apply bg-primary text-primary-foreground;
-  }
-}
-
-/* ------------------------------------------------------------------
-   CUSTOM UTILITIES
------------------------------------------------------------------- */
-@layer utilities {
-  @utility font-body {
-    font-family: var(--font-body);
-  }
-
-  @utility font-display {
-    font-family: var(--font-display);
-  }
-
-  @utility font-bold {
-    font-weight: 700;
   }
 }
 
@@ -179,7 +173,6 @@
     @apply border-2 border-border bg-transparent px-4 py-3 font-body text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors;
   }
 
-  /* Scrollbar styling */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
