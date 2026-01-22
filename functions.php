@@ -22,10 +22,34 @@ function mytheme_setup() {
 add_action('after_setup_theme', 'mytheme_setup');
 
 function mi_tema_scripts() {
-    // CSS compilado de Vite
-    wp_enqueue_style('main-style', get_template_directory_uri() . '/dist/assets/main.css', array(), filemtime(get_template_directory() . '/assets/main.css'));
+    $theme_dir = get_template_directory();
+    $theme_uri = get_template_directory_uri();
 
-    // JS compilado de Vite (si lo necesitas)
-    wp_enqueue_script('main-js', get_template_directory_uri() . '/dist/assets/main.js', array(), filemtime(get_template_directory() . '/assets/main.js'), true);
+    // CSS
+    $css_path = $theme_dir . '/dist/assets/index.css';
+    if (file_exists($css_path)) {
+        wp_enqueue_style(
+            'main-style',
+            $theme_uri . '/dist/assets/index.css',
+            [],
+            filemtime($css_path)
+        );
+    }
+
+    // JS
+    $js_path = $theme_dir . '/dist/assets/main.js';
+    if (file_exists($js_path)) {
+        wp_enqueue_script(
+            'main-js',
+            $theme_uri . '/dist/assets/main.js',
+            [],
+            filemtime($js_path),
+            true
+        );
+    }
 }
+
 add_action('wp_enqueue_scripts', 'mi_tema_scripts');
+
+
+
