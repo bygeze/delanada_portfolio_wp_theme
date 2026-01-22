@@ -35,9 +35,6 @@
 
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
-
-  --color-surface-elevated: hsl(var(--surface-elevated));
-  --color-lilac-glow: hsl(var(--lilac-glow));
 }
 
 /* ------------------------------------------------------------------
@@ -45,39 +42,26 @@
 ------------------------------------------------------------------ */
 @layer base {
   :root {
-    /* Core dark palette */
     --background: 0 0% 4%;
     --foreground: 0 0% 98%;
-
     --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
-
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
-
-    /* Primary Lilac accent */
     --primary: 270 50% 75%;
     --primary-foreground: 0 0% 4%;
-
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
-
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
-
     --accent: 270 50% 75%;
     --accent-foreground: 0 0% 4%;
-
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
-
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 270 50% 75%;
-
     --radius: 0px;
-
-    /* Custom tokens */
     --surface-elevated: 0 0% 10%;
     --text-secondary: 0 0% 70%;
     --lilac-glow: 270 60% 70%;
@@ -107,19 +91,6 @@
 }
 
 /* ------------------------------------------------------------------
-   CUSTOM FONT UTILITIES
------------------------------------------------------------------- */
-@layer utilities {
-  .font-display {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-  }
-
-  .font-body {
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-}
-
-/* ------------------------------------------------------------------
    BASE STYLES
 ------------------------------------------------------------------ */
 @layer base {
@@ -132,11 +103,13 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-body;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif; /* directamente aquí */
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold tracking-tight;
+    font-family: 'Space Grotesk', system-ui, sans-serif; /* directamente aquí */
+    @apply font-bold tracking-tight;
   }
 
   ::selection {
@@ -149,7 +122,8 @@
 ------------------------------------------------------------------ */
 @layer components {
   .btn-brutalist {
-    @apply border-2 border-foreground bg-transparent px-6 py-3 font-display font-bold uppercase tracking-wider transition-all duration-200;
+    @apply border-2 border-foreground bg-transparent px-6 py-3 font-bold uppercase tracking-wider transition-all duration-200;
+    font-family: 'Space Grotesk', system-ui, sans-serif; /* inline */
   }
 
   .btn-brutalist:hover {
@@ -157,7 +131,8 @@
   }
 
   .btn-brutalist-accent {
-    @apply border-2 border-primary bg-transparent px-6 py-3 font-display font-bold uppercase tracking-wider text-primary transition-all duration-200;
+    @apply border-2 border-primary bg-transparent px-6 py-3 font-bold uppercase tracking-wider text-primary transition-all duration-200;
+    font-family: 'Space Grotesk', system-ui, sans-serif; /* inline */
   }
 
   .btn-brutalist-accent:hover {
@@ -186,7 +161,8 @@
   }
 
   .input-brutal {
-    @apply border-2 border-border bg-transparent px-4 py-3 font-body text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors;
+    @apply border-2 border-border bg-transparent px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors;
+    font-family: 'Inter', system-ui, sans-serif; /* inline */
   }
 }
 
