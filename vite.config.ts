@@ -7,6 +7,17 @@ export default defineConfig({
   plugins: [
     react()
   ],
+    build: {
+    outDir: path.resolve(__dirname, './dist/assets'), // Carpeta de salida
+    emptyOutDir: true, // Limpia la carpeta antes de cada build
+    rollupOptions: {
+      output: {
+        entryFileNames: 'main.js',      // JS principal
+        chunkFileNames: '[name].js',    // Otros chunks
+        assetFileNames: '[name].[ext]', // CSS, imágenes, etc.
+      },
+    },
+  },
     resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
