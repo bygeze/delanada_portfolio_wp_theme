@@ -3,9 +3,6 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Cargar archivos del theme
-require_once get_template_directory() . '/styles.php';
-
 // Setup del theme
 function mytheme_setup() {
     add_theme_support('title-tag');
