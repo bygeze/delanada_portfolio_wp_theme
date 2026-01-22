@@ -21,6 +21,7 @@ function mytheme_setup() {
 }
 add_action('after_setup_theme', 'mytheme_setup');
 
+/* add vite css and js */
 function mi_tema_scripts() {
     $theme_dir = get_template_directory();
     $theme_uri = get_template_directory_uri();
@@ -51,5 +52,11 @@ function mi_tema_scripts() {
 
 add_action('wp_enqueue_scripts', 'mi_tema_scripts');
 
-
+/* menus */
+function delanada_register_menus() {
+    register_nav_menus([
+        'primary' => __('Primary Menu', 'delanada'),
+    ]);
+}
+add_action('after_setup_theme', 'delanada_register_menus');
 

@@ -28,24 +28,8 @@
         <div className="min-h-screen bg-background text-foreground">
         <span>this is just a test</span>
         <header class="site-header">
-            <div class="container">
-                <h1 class="site-title">
-                    <a href="<?php echo esc_url(home_url('/')); ?>">
-                        <?php bloginfo('name'); ?>
-                    </a>
-                </h1>
-
-                <nav class="site-nav">
-                    <?php
-                    wp_nav_menu([
-                        'theme_location' => 'primary',
-                        'container' => false,
-                    ]);
-                    ?>
-                </nav>
-            </div>
+            <?php get_template_part('template-parts/navigation'); ?>
         </header>        
-        <!-- <Navigation /> -->
         <main class="site-main">
             
             <!--<Hero />
